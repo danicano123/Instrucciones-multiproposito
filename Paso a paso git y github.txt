@@ -34,17 +34,73 @@ si queremos comparar 2 versiones, primero desplagamos el historial completo con 
 
 " git merge otraRama " fusiona la ultima version del repositorio local con mi directorio de trabajo. Se debe hacer estando dentro de la rama principal y se pone el nombre de la otra rama. Si hay conflicto puedo usar " git merge --abort " para cancelar el merge o puedo arreglar el conflicto
 
-" git branch " me muestra todas las ramas o me crea una nueva si le agrego un nombre " git branch nombreRama " y puedo ver el historial por ramas con git show-branch --all
+" git branch " me muestra todas las ramas .
+	[
+	crea una nueva si le agrego un nombre " git branch nombreRama "
+	puedo ver el historial por ramas con git show-branch --all
+	Tambien se puede borrar la rama con " git branch -D nombreRama " 
+	"git branch -r : me permite ver la ramas del remoto
+	"git branch -a" ver todas la ramas remotas y locales
+	]
 
 " git remote add origin linkDelRepositorio " me establece la conexion con mi repositorio remoto y puedo tener mas de un remoto, solo le cambio el nombre de origin e invico la nueva direccion en mi caso SSH, esto se hace sobretodo cuando estoy colaborando con un repositorio donde no soy colaborador y me tengo que actualizar al a version reciente de este repo
 
-" git push origin master " me manda TODO lo local DE LA RAMA ACTUAL	 al remoto incluyendo el historial de commits PERO si sale un error de que el remoto tiene trabajo que tu no tienes en local lo que debes hacer es un " pull " Para revisar que si esté bien vinvulado " git remote -v "
+" git push origin master " me manda TODO lo local DE LA RAMA ACTUAL al remoto incluyendo el historial de commits PERO si sale un error de que el remoto tiene trabajo que tu no tienes en local lo que debes hacer es un " pull " Para revisar que si esté bien vinvulado " git remote -v "
 
 " git pull origin nombreRama " me trae lo que hay en el head de el remoto pero si me sale una advertencia de que no hay commits en comun ya que son historias distintas debo hacer " git pull origin master --allow-unrelated-histories " y ahí si nos deja
 
+" git rebase nombrerRama " me fusiona 2 ramas como si la primera nunca hubiera existido. Se hace desde la rama que quiero eliminar hacia la rama principal o que quedará con toda la data. Primero se hace rebase a la rama secundaria y luego a la principal
+
 Puedo crear TAGS primero copio el hash del commit  " git tag -a v0.1 -m "comentario" hashDelCommit " y puedo ver mis tags con " git tag " o verlo completo con " git show-ref --tags " y puedes mandar dichos tang al repo remoto con " git push origin --tags " Y tambien lo puedo borrar con " git tag -d nombreTag " y luego " git push origin :refs/tags/nombreTag "
+
+GIT STAGH : quiero volver a un commit anterior o rama y tengo cambios a los que aun no les quiero hacer commit, puedo guardarlas con " stash " en un lugar temporal y me devuelve al ultimo commit
+	[
+	git stash list: me muestra todos los WIP work in progres en que rama están y cual es su indice
+	git stash pop: me devuelve ese ultimo cambio en memoria
+	git stash branch nombreNuevaRama: me tira el pop del stash a una rama por si quiero que esos cambios que hice se trabajen en otra rama
+	git stash drop: me borra el pop
+	git stash save: me permite guardarlo con un mensaje
+	git stash pop stash@{numero}: puedo usar un stash en especifico
+	git stash clean: me borra todos los stach
+	]
+
+GIT CLEAN: borra los archivos no stageados o trackeados pero no borra carpetas ni lo que esté en "gitignore" sino archivos y no funciona por si solo, se necesita :
+	[
+	git clean --dry-run: simula lo que se va a borrar sin borrarlo
+	git clean -f : ahi si borra todo
+	]
+
+GIT CHERRY-PICK idCommit : me hace un " merge " entre cualquier commit que yo elija y la rama donde esté parado
+
+GIT REFLOG: me muestra TODO lo que se ha hecho sin excepciones incluyendo los comandos que se ejecutaron, aquí me muestra unos indices de cabecera "HEAD"  que puedo usar para volver en el tiempo con " git reset --hard hashDelHead "
+
+GIT COMMIT --AMEND : me suma los cambios actuales en stage al commit anterios por si me quedó faltando algo
+
+GIT GREP palabraABuscar: mi busca en TODOS los archivos de mi rama actual las palabras o frases que coincidan con la busqueda
+	[
+	Con" git grep -n color" nos saldrá un output el cual nos dirá en qué línea está lo que estamos buscando.
+	Con "git grep -c color" nos saldrá un output el cual nos dirá cuántas veces se repite esa palabra y en qué archivo.
+	Si queremos buscar cuántas veces utilizamos un atributo de HTML lo hacemos con "git grep -c "<p>"".
+	Con " git log -S "palabra a buscar" : me hace el filtro pero en los logs
+	]
 
 GITK ME ABRE UNA SUPER INTERFAZ 
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+.GITIGNORE: es un archivo que me va a indicar qué elementos NO deben ser incluidos en el envío y la sintaxis es como si hicieramos una consulta en wildcards
+	[
+	# aquí van los comentarios
+	*.jpg : me ignora todo lo que termine por ".jpg"
+	home/daniel/desktop : NO me envies lo que está en mi escritorio (solo un ejemplo)
+	!home/daniel/desktop/importante : PERO de lo que está en mi escritorio, mandame esa carpeta que dice importante (con el "!" si permito algo en particular)
+	]
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+README.MD: Es una buena practica que describe mi proyecto siendo un archivo de tipo .md
 
 

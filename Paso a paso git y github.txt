@@ -30,17 +30,21 @@ si queremos comparar 2 versiones, primero desplagamos el historial completo con 
 
 " git clone " se trae una copia del master remoto a tu local
 
-" git pull " hace fetch y merge al mismo tiempo
+" git pull origin nombreRama" hace fetch y merge al mismo tiempo
 
 " git merge otraRama " fusiona la ultima version del repositorio local con mi directorio de trabajo. Se debe hacer estando dentro de la rama principal y se pone el nombre de la otra rama. Si hay conflicto puedo usar " git merge --abort " para cancelar el merge o puedo arreglar el conflicto
 
-" git branch " me muestra todas las ramas o me crea una nueva si le agrego un nombre " git branch nombreRama "
+" git branch " me muestra todas las ramas o me crea una nueva si le agrego un nombre " git branch nombreRama " y puedo ver el historial por ramas con git show-branch --all
 
-" git remote add origin linkDelRepositorio " me establece la conexion con mi repositorio remoto
+" git remote add origin linkDelRepositorio " me establece la conexion con mi repositorio remoto y puedo tener mas de un remoto, solo le cambio el nombre de origin e invico la nueva direccion en mi caso SSH, esto se hace sobretodo cuando estoy colaborando con un repositorio donde no soy colaborador y me tengo que actualizar al a version reciente de este repo
 
-" git push origin master " me manda TODO lo local al remoto incluyendo el historial de commits PERO si sale un error de que el remoto tiene trabajo que tu no tienes en local lo que debes hacer es un " pull "
+" git push origin master " me manda TODO lo local DE LA RAMA ACTUAL	 al remoto incluyendo el historial de commits PERO si sale un error de que el remoto tiene trabajo que tu no tienes en local lo que debes hacer es un " pull " Para revisar que si esté bien vinvulado " git remote -v "
 
 " git pull origin nombreRama " me trae lo que hay en el head de el remoto pero si me sale una advertencia de que no hay commits en comun ya que son historias distintas debo hacer " git pull origin master --allow-unrelated-histories " y ahí si nos deja
+
+Puedo crear TAGS primero copio el hash del commit  " git tag -a v0.1 -m "comentario" hashDelCommit " y puedo ver mis tags con " git tag " o verlo completo con " git show-ref --tags " y puedes mandar dichos tang al repo remoto con " git push origin --tags " Y tambien lo puedo borrar con " git tag -d nombreTag " y luego " git push origin :refs/tags/nombreTag "
+
+GITK ME ABRE UNA SUPER INTERFAZ 
 
 
 

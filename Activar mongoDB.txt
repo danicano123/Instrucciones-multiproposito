@@ -1,0 +1,3 @@
+Tras la instalación debemos crear una variable de entorno en el path con la ruta de la carpeta de mongo para poder ejecutar los comandos desde cualquier parte
+
+Iniciamos el sistema desde consola con " mongod " y eso lo deja " escuchando " para poder establecer la conexion. Ya solo abrimos el framework ( compass ) y él nos hace la conexion

@@ -1,0 +1,46 @@
+primero confirgura tus credenciales con " git config --global user.name " para tu nickname y cambia name por email para configurar tu email
+
+En la carpeta donde está mi proycto, desde consola hago " git init " que comienza un repositorio ( base de datos donde se guardará loscambios de cualquier archivo dentro de la carpeta )
+
+de una vez mi visual estudio tiene un apartado a lado izquierdo donde me muestra como el registro del control de versiones pero a nivel consola, puedo revisar todos los cambios solo con " git status "
+
+nada va a ser añadido al seguimiento de las versiones hasta que no lo agreguemos y lo hacemos con " git add nombreArchivo " o para agregar todos los archivos que haya en la carpeta " git add ."
+
+hasta este punto ha sido enviado, si hay algo que no debió ser agregado aún, simplemente lo sacamos con " git rm --cached nombreArchivo " con el " --cached " le decimos, saquelo de la lista para hacer commit pero no borre ese archivo de la carpeta, o si lo quiere borrar solo cambie esa instruccion por un " -f " NO RECOMENDADO
+
+para enviar los cambios al repositorio local, solo usamos " git commit -m "textoDescriptivoDeLoQueEnvio" 
+
+para ver el historial de cambios usamos " git log nombreArchivoARevisar " o " git log --stat " si quiero ver que cambios se hicieron en qué archivos
+
+para ver tanto historial como las diferencias entre el cambio actual y el anterior " git show nombreArchivo " 
+
+si queremos comparar 2 versiones, primero desplagamos el historial completo con " git log nombreArchivo " y luego tomamos el id de las 2 versiones a comparar para pegarlas así " git diff id1 id2 " primero ponemos la mas vieja y luego la mas reciente por buena practica
+
+" git reset idARegresar --soft " me devuelve a la version que yo desee pero mantiene los cambios actuales en staging o tracking como si los tuviera en git add SI ESTOY EN LA VERSION 10 Y PASO A LA 1 SE BORRAN TODAS HASTA LA 1 IGUAL EN QUE EN EL HARD 
+
+"git reset id --hard " me devuelve a la version elegida agresivamente, osea que no deja nada en tracking y de una queda esa version como el head
+
+"git reset HEAD " me saca todo lo de memoria RAM osea lo que esta en stadding osea lo que puse con git add
+
+" git checkout " me permite saltar entre versiones sin borrar nada y hacer revisiones sin necesariamente hacer cambios, permitiendo volvera la version head sin problemas. Si quiero volver a alguna version anterior digo " git checkout idVersion nombreArchivo " el nombreArchivo es si no quiero traer todo ese commit sino solo una parte de él y si quiero volver al original solo llamo al de master o tambien por el id si quiero. NO BORRA NADA AL VOLVER ATRAS
+
+" git push " me va a mandar el head para el repositorio remoto
+
+" git fetch " me trae la ultima actualizacion del repositorio remoto al local NO A MI DIRECTORIO
+
+" git clone " se trae una copia del master remoto a tu local
+
+" git pull " hace fetch y merge al mismo tiempo
+
+" git merge otraRama " fusiona la ultima version del repositorio local con mi directorio de trabajo. Se debe hacer estando dentro de la rama principal y se pone el nombre de la otra rama. Si hay conflicto puedo usar " git merge --abort " para cancelar el merge o puedo arreglar el conflicto
+
+" git branch " me muestra todas las ramas o me crea una nueva si le agrego un nombre " git branch nombreRama "
+
+" git remote add origin linkDelRepositorio " me establece la conexion con mi repositorio remoto
+
+" git push origin master " me manda TODO lo local al remoto incluyendo el historial de commits PERO si sale un error de que el remoto tiene trabajo que tu no tienes en local lo que debes hacer es un " pull "
+
+" git pull origin nombreRama " me trae lo que hay en el head de el remoto pero si me sale una advertencia de que no hay commits en comun ya que son historias distintas debo hacer " git pull origin master --allow-unrelated-histories " y ahí si nos deja
+
+
+

@@ -53,7 +53,7 @@ si queremos comparar 2 versiones, primero desplagamos el historial completo con 
 
 Puedo crear TAGS primero copio el hash del commit  " git tag -a v0.1 -m "comentario" hashDelCommit " y puedo ver mis tags con " git tag " o verlo completo con " git show-ref --tags " y puedes mandar dichos tang al repo remoto con " git push origin --tags " Y tambien lo puedo borrar con " git tag -d nombreTag " y luego " git push origin :refs/tags/nombreTag "
 
-GIT STAGH : quiero volver a un commit anterior o rama y tengo cambios a los que aun no les quiero hacer commit, puedo guardarlas con " stash " en un lugar temporal y me devuelve al ultimo commit
+GIT STASH : quiero volver a un commit anterior o rama y tengo cambios a los que aun no les quiero hacer commit, puedo guardarlas con " stash " en un lugar temporal y me devuelve al ultimo commit
 	[
 	git stash list: me muestra todos los WIP work in progres en que rama están y cual es su indice
 	git stash pop: me devuelve ese ultimo cambio en memoria

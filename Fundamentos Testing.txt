@@ -1,0 +1,11 @@
+PRINCIPIOS DE LAS PRUEBAS:
+Conocer tu producto atravez de la exploracion y la experimentacion, recuerda, no existe un software 100%  perfecto
+- Son parte de la solucion
+- Se deben entregar pruebas al cliente
+- Deben ser faciles de mantener con una buena estructura
+- Se debe disponer del tiempo necesario y el personal para ejcutarlas
+- Al saber que pruebas son las correctas podemos tener una mejora continua liberando buen sofware de la forma deseada
+- Si solo resolevmos problemas rapidamente puede que no se haga un correcto analisis o haya problemas de comunicacion o documentacion lo que puede generar sobrecostos
+- Nuestras pruebas nos permiten analizar qué estandares necesita el cliente final a la hora de usar el software mas allá de que solo funcione bien ya que debemos garantizar cosas como seguridad en los datos
+1. Testing moderno:
+	

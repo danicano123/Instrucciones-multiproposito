@@ -7,5 +7,326 @@ Conocer tu producto atravez de la exploracion y la experimentacion, recuerda, no
 - Al saber que pruebas son las correctas podemos tener una mejora continua liberando buen sofware de la forma deseada
 - Si solo resolevmos problemas rapidamente puede que no se haga un correcto analisis o haya problemas de comunicacion o documentacion lo que puede generar sobrecostos
 - Nuestras pruebas nos permiten analizar qué estandares necesita el cliente final a la hora de usar el software mas allá de que solo funcione bien ya que debemos garantizar cosas como seguridad en los datos
-1. Testing moderno:
-	
+
+Las puebas se pueden organizar en TIPO DE PROBLEMA, DESCRIPCION, PASOS A SEGUIR, RESULTADO ESPERADO Y RESULTADO OBTENIDO
+
+Estandar internacional:
+- Metodología: Establezco el criterio o estrategia para realizar pruebas y los responsables con su forma de entregarlo
+
+- Recursos: Tener la preparación suficiente para realizarlas
+ 
+- Herramientas: Permiten optimizar la identificación, documentacion y comunicación de los problemas 
+
+~ " Cuando no entiendes el software que estás creando es cuando ocurren los problemas porque estás inventando lo que quieres hacer en lugar de tener una metodología para su construcción "
+
+Calidad del software: Lo principal y general que se busca es la calidad del producto que entregamos donde la misma se basa en lo que hacemos, lo que construimos y sus "requerimientos", "diseño", "código" y "el sistema funcional"
+
+Calidad del proceso: Hace referencia en la manera en que ejecutamos las acciones que nos permiten llegar a esa calidad de software, el como seguimos "estándares", "procedimientos" y el proceso general del proyecto
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+A lo largo del ciclo de vida del software se realizan distintas pruebas para garantizar que este cumpla con los requerimientos para los que fue diseñado y de la misma forma se encuentren procesos de mejora y optimización a medida que se desarrolla el software.
+
+- Es necesario hacer pruebas en todas las fases del desarrollo de software ya que un error encontrado en una etapa tardía puede generar costos muy elevados.
+
+- Errores detectados lo antes posible reducen los costos y son mucho más fáciles de corregir.
+
+- El ciclo de vida permite que los errores se detecten lo antes posible y por lo tanto, permite a los desarrolladores concentrarse en la calidad del software, en los plazos de implementación y en los costos asociados.
+
+- El ciclo de vida básico de un software consta de los siguientes procedimientos:
+
+	°Definición de objetivos
+	En esta fase se define el alcance general del software y su papel dentro de una estrategia global o dentro del ecosistema que va a funcionar.
+
+	°Análisis de los requisitos y su viabilidad
+	Se trata de recopilar la mayor cantidad de información posible para evaluar la viabilidad del producto, encontrar posibles restricciones y analizar todos los requisitos del cliente.
+
+	°Diseño
+	Alto nivel: Se trata de realizar un diseño básico que valide la arquitectura de la aplicación.
+	Bajo nivel: Es una definición detallada de la estructura de la aplicación basada en el diseño general.
+
+	°Programación
+	Es la implementación de un lenguaje de programación para crear las funciones definidas durante la etapa de diseño.
+
+	°Pruebas de verificación
+	Aunque en todas las fases anteriores se hacen pruebas en esta fase se cubren: pruebas de componentes, integrales y de sistema.
+
+	°Prueba beta (o validación)
+	Se hace para garantizar que el software cumple con las especificaciones originales o también se hacen las pruebas de aceptación.
+
+	°Implementación
+	Se realiza una prueba del sistema implementado para encontrar posibles fallas en la Implementación.
+
+	°Mantenimiento
+	Se hace para todos los procedimientos correctivos (mantenimiento correctivo) y a las actualizaciones secundarias del software (mantenimiento continuo), junto con la actualización de las pruebas.
+
+	Si hacemos las pruebas durante cada fase del ciclo de vida del software tendremos al final del ciclo un producto validado y robusto de acuerdo a las necesidades del cliente
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Calidad: La calidad es una percepción entre lo deseado, analizado y lo que vamos a entregar. La calidad la define el cliente, si esa persona esta satisfecha con lo entregado hasta ahí llega la calidad.
+
+°Verificación: Es ir en cada etapa revisando que se cumpla lo propuesto por el cliente.
+
+°Validación: Antes de entregar al cliente, validamos que efectivamente el conjunto de requerimientos esta siendo cumplido con lo entregado.
+
+°Anomalia: la manifestación de un error en el software.
+
+°Error: una acción humana que produce un resultado incorrecto.
+
+°Defecto: imperfección o deficiencia, el cual no cumple sus requerimientos o especificaciones y necesita ser reparado o remplazado.
+
+°Fallo: el cese de la habilidad de un producto de cumplir una función requerida o su inhabilidad de funcionar dentro de márgenes previamente especificados.
+
+°Problema: dificultad o incertidumbre experimentada por una o más personas, como resultado de un encuentro insatisfactorio con el sistema usado.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Hay muchas especialidades a la hora de hablar de testing y cada una de ellas tiene diferentes funciones y perspectivas que se incluyen en diferentes fases del proceso
+
+- Manual tester: Nos ayuda a definir los casos de pruebas, establecer estrategias. También ejecuta, pero lleva lo necesario para que todos sepan qué hacer.
+
+- Pensamiento lateral, piensa fuera de la caja con una nueva perspectiva, agrega nuevos casos de usos y entiende muy bien al usuario.
+Automation tester: Se encarga de agilizar, acelerar el trabajo y actividades que nos quitan la oportunidad de encontrar más casos de usos.
+
+- Conoce de programación, no solo de forma básica, debe conocer como crear diseños de frameworks y soluciones. El código crece y las pruebas también, darle ese mantenimiento a las pruebas es un problema común.
+Security tester: Encargado para el área de seguridad. Debe ser alguien que aporte valor desde la perspectiva de la seguridad.
+
+- Protocolos, estándares, legalizaciones dependiendo de cada país y marca. Esta enfocado en prever ataques, virus, problemas de seguridad, acceso no autorizado. Profundizar en las técnicas y prácticas de seguridad.
+Data science tester: Con la manera en que crecen los datos en un proyecto, se necesita a alguien que los analice, agrupe y limpie estos datos.
+
+- Análisis y Limpieza de datos, omite tener un set de pruebas amplio donde la variedad va a permitir detectar defectos inesperados. Esto puede ser clave para que los resultados no sean falsos positivos
+SDET: Es la combinacion de un desarrollador que ya sabe hacer pruebas. Con la diferencia de automatiza y hace uso de herramientas que organizan la operación de la entrega de las pruebas. Esta persona se asegura de que las pruebas se ejecuten antes de liberar el código.
+
+- El programador ahora sabe hacer pruebas y conoce de herramientas que le permite entregarlas de una manera automatizada.
+DevOps: Conoce todo lo anterior y domina el conocimiento de automatizar el proceso, se asegura de una entrega continua.
+
+- Una automatización de la operación, Entrega Continua. Donde se entregan de forma más rápida las nuevas versiones.
+QA Engineer: Quality Assurance. Esta enfocado en el producto y en el proceso.
+
+- Procesos de Calidad
+QE: Quality Engineer. Es como un coach, acompaña en las politicas de calidad en la empresa o equipo.
+
+Soluciones de estrategias de calidad.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Testing: Es la exploración de una idea, aprender a conocer como sucede el flujo, se generan datos, se llenan formularios. Esto y la exploración de pruebas nunca terminan, siempre hay nuevas formas de conocer como el usuario esta usando el software
+
+Checking: Es cuando sabes qué esta pasando y te verificas que siga pasando. Como verificar una maleta antes de viajar para asegurarnos que guardamos todo.
+
+Solo se ejecutan si sucede algo
+Se ejecutan cada que… libero nuevo código o software.
+Se ejecutan de manera programada.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Testing ágil: aInvolucra a todos, no solo en al tester, todos en el equipo son tester. La persona con este rol se asegura de la mayor cobertura de pruebas tomando en cuenta todas las necesidades que cada uno de los miembros del equipo también esta intentando hacer que funcione. El tester tiene que definir si se esta cumpliendo con los requerimientos funciones y los del equipo.
+
+Estrategias Ágiles:
+
+- El testing es de ““todo el equipo””
+- El testing puede ser independiente
+- Integración continua
+- Testing guiado por pruebas (Test Driven Development)
+- Desarrollo guiado por comportamiento (Behaviour Driven Development)
+- Desarrollo guiado por las pruebas de aceptación (Acceptance Test Driven Development)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Niveles de pruebas : Vamos a ver diferentes estrategias de cómo podemos ir probando elementos por capas. Componentes, estructuras, etc.
+
+- Prueba de Componentes: Componentes son aquellas cosas pequeñas que sueles ver en un video como el botón de pausa, volumen, adelantar, retroceder. Cada una de esas acciones son un componente.
+
+- Pruebas de integración: Una aplicación tiene una serie de componentes que trabajando juntos forman un pequeño sistemas, pero cuando tienes varios de estos sistemas necesitas integrarlos entre ellos.
+
+- Prueba de sistema: Esta parte incluye que estás tomando en cuenta el contexto, no es lo mismo tener las mismas pruebas para iOS, Android y Web.
+
+- Pruebas de aceptación: Si ya probamos que nuestro elemento o acción funcionan, estás pruebas nos aseguran con o sin el cliente que tiene cubierta todas las necesidades requeridas en el software. Es la última verificación.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Tipos de pruebas : Necesitamos tener otra clasificación adicional. En los niveles sabemos la profundidad de las pruebas, pero en los tipos independientemente de su profundidad son las técnicas que vamos a usar para encontrar los defectos.
+
+- Pruebas funcionales: Cómo funciona un sistema, qué debe estar haciendo, cómo está interactuando el usuario con él.
+
+- Pruebas no-funcionales: El usuario puede estar experimentando otro tipo de cosas que aún funcionando puede tener la sensación de lentitud, falta de legibilidad o claridad. Esas características de usabilidad están asociadas a estas pruebas.
+
+- Pruebas estructurales: Tienen que ver con la tecnología y el stack usado para construir nuestro producto. Nos tenemos que asegurarnos que nuestra base de datos o servidor funcionen de la manera correcta. Son conocidas como pruebas de caja blanca.
+
+- Prueba de manejo de cambios: Es probar nuevamente un componente ya probado para verificar que no ha sido impactado por actualizaciones.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Ya vimos los cuatro diferentes tipos de pruebas, pero estas también se separan en dos formas diferentes de trabajarlas.
+
+- Pruebas estáticas: Muchas veces no son consideradas en los proyectos porque significa revisar código, documentación, verificar información documentada de la forma correcta.
+
+- Pruebas dinámicas: Se enfocan en comportamientos externos visibles durante la ejecución del software.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Cajas blanca, gris y negra : Cuando no estamos refiriendo a una caja es la manera de observar el contenido de software.
+
+Negra: No podemos observar cómo fue construida, no vemos el código, no sabemos su arquitectura, no tenemos nociones más que la interfaz que estamos interactuando.
+
+Partición de equivalencia
+Valores límite
+Tabla de decisiones
+Transición de estados
+Casos de usos
+Blanca: Es como una caja de cristal, puedo ver todo lo que hay adentro e incluso puedo ser parte del equipo que desarrolla el software.
+
+Cobertura de declaración
+Cobertura de decisiones
+Gris: Pueden ser la integraciones, cómo fluye el código y puedo ver como se transmiten los datos a través de las redes.
+
+Casos de negocios
+Pruebas End-to-End
+Pruebas de integración
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Gestión, monitoreo y control: Monitoreo y Seguimiento : Aunque parezca obvio que es necesario gestionar nuestro trabajo y darle seguimiento a las pruebas y ejecución, hay estudios donde las empresas no pueden hacer esto exitosamente.
+
+Gestión de Pruebas:
+
+Planeación: Definir los objetivos de las pruebas es muy importante, al no tener una estrategia clara termina causando una pobre cobertura de pruebas. Los elementos a considerar para una buena planeación son la estimación, recursos, el alcance y objetivo.
+
+Monitoreo y Control: Durante el monitoreo lo que estamos buscando son esas métricas que nos digan si estamos llevando avances o tenemos retrasos. Son nuestras alertas cuando nuestro plan no se esta ejecutando.
+
+Análisis: Incluye decidir cuáles son esas prioridades que nos ayudará a definir qué debemos probar.
+
+Diseño: Normalmente cuándo estas iniciando las pruebas es necesario crear un mapa de ideas. Después de esto, puedes realizar el diseño a detalle de qué va a incluir cada caso de uso. Casos de alto nivel, diseñar y priorizar pruebas, identificar el entorno de pruebas, hacer una trazabilidad entre pruebas y sus
+condiciones.
+
+Implementación: También nos aseguramos de contar con la estructura necesaria para realizar las pruebas, con un ambiente, datos y dónde documentar o realizar las pruebas.
+
+Ejecución: En esta etapa los suites de pruebas se ejecutan de acuerdo al programa o el plan diseñado con anterioridad. Se suelen agrupar los casos de pruebas para que no estén desorganizado y podemos hacerles un buen seguimiento.
+
+Finalización: Cuando queremos cerrar el ciclo de las pruebas, necesitamos saber qué porcentaje se cubrió, ejecutó, cuántos defectos se derivaron, aprender lecciones sobre el proceso.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Retrabajo: 
+Es necesario identificar cada uno de los roles y responsabilidades para después evaluar si se esta haciendo o no re trabajo, es decir estamos utilizando tiempo que podría ser utilizado en otras actividades o sencillamente que no debería hacerse
+
+También es necesario medir el rendimiento de nuestro trabajo y herramientas que nos permitan conocer paso a paso cómo vamos avanzado en el proceso de manera individual o en equipo.
+
+Retrabajo: Es la principal causa del retraso, de que la estimación de tiempo falle, de que costos suban. Cuando estos suceden aumentamos exponencialmente el trabajo de todos
+
+° Falta o mala documentación
+° Falta de capacitación o dominio en las herramientas utilizadas
+° Falta de capacitación o dominio en el software a desarrollar
+° Falta de comunicación
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Sistema de seguimiento de bugs:
+
+La mala administración, malas prácticas o falta de seguimiento entorpece las tareas de todo el equipo sino que además sumamos el retrabajo en la mala documentación puede que nuestro proyecto se salga de presupuesto o tiempo.
+
+Razones por las que aparecen defectos:
+
+° Hay presión de tiempo en la entrega del software
+° Descuidos en el diseño
+° Inexperiencia o falta de conocimiento
+° Falta de comunicación en los requerimientos
+° Diseño complejo de código
+° Desconocimiento de las tecnologías usadas
+
+Preguntas a realizar para construir un proceso de gestión de bugs:
+
+° ¿Qué debe de hacer la persona que encuentre el defecto?
+° ¿En qué herramienta debe documentar el defecto?
+° ¿Cómo vamos a almacenar la información?
+° ¿Qué información requiere el equipo de desarrollo para poder resolver un defecto?
+° ¿Cuáles son los estatus que se manejan para que fluya la resolución del defecto?
+° ¿Cuáles son los criterios de aceptación de cierre del defecto?
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Defectos y sugerencias:
+
+Dependiendo del objetivo del proyecto podemos encontrar que no todos quieren que des sugerencias, solo encuentres defectos. Cosas que pongan en riesgo por costo, prestigio o calidad del producto.
+
+Defectos: Es aquello que no cumple los requerimientos funciones, de diseño, de arquitectura y es la consecuencia de un error humano en el código o la interpretación de la información.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+¿Qué es la depuración?
+
+Hacer testing o depuración son dos actividades diferentes. Mientras el testing sirven para encontrar defectos, la depuración nos permitirá entender por qué esta sucediendo este defecto y que actividades están implicadas en el. Ambas pueden ir de la mano y son muy importantes.
+
+Debugger: Es una herramienta que nos ayuda a encontrar todos estos errores ya sea de sintaxis, advertencias de seguridad, etc. Nos permite ejecutar línea por línea, detener la ejecución temporalmente, visualizar el contenido de las variables, cambiar el valor del entorno de ejecución para poder ver el efecto de una corrección en el programa.
+
+Beneficiados
+
+Programador: Requiere cada vez que programa ir depurando lo que ejecuta y escriba para que cumpla con su objetivo
+Tester: Le ayuda a reducir el tiempo de análisis que después puede ser asignado para el desarrollador
+Analista: Puede ser para analisis de encontrar información de un historial sobre cómo se comporta un sistema.
+Objetivo: Vamos a analizar cómo se comporta el sistema, cómo se transfieren los datos, cómo se procesa la información. Tenemos la capacidad de tener nuestro código en cualquier momento para conocer cómo funciona.
+
+Sugerencias: Es cómo la experiencia del usuario se ve afectado. La lentitud del proyecto, la legibilidad, combinación de colores, la forma de navegar no es adecuada.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Pruebas de verificación:
+
+Las pruebas de verificación sirven para confirmar que un cambio se haya hecho o un defecto se haya corregido. Queremos verificar que lo que estamos buscando está en los requerimientos o documentación.
+
+Pruebas de verificación
+
+Tratan de reproducir el escenario fallido con los datos usados. Pero sería un error usar los mismo datos para después asumir que el error fue corregido.
+Se buscan nuevos escenarios donde se utilicen valores relativos. Como Otras plataformas, otros sistemas operativos, otros exploradores, otros dispositivos
+Pruebas de regresión
+
+La matrices de pruebas cuando se implementan otros dispositivos u otros exploradores nos ayuda a tenerlos en cuenta nuestros puntos de verificación para que no sufran un impacto.
+La matriz de prueba nos funciona para casos donde no solo vemos los defectos sino que todo lo que ya funciona siga funcionando.
+Nos ayuda a tener una claridad con los casos de prueba claves que pueden ser automatizados.
+Documentación
+
+Comentarios en el código
+Documentación técnica
+Pruebas unitarias
+Pruebas específicas
+Matrices de pruebas
+Plan de pruebas
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Técnicas de depuración:
+Las técnicas de depuración deben ir cambiando de ser reactivas a ser preventivas. Debemos recordar que parte de los principios del testing moderno es tratar de ir corrigiendo nuestras técnicas, implementar mejores prácticas y hacer uso de mejores herramientas. El debugging debería ser la última técnica que utilizas.
+
+Técnicas de depuración:
+
+Debugging: Observar valores de variables, detener temporalmente la aplicación.
+Logs: Hacer un vaciado de cómo las variables van cambiando y es más fácil rastrear la información.
+Historial: Agiliza la forma de monitorear y observar los comportamientos de nuestro software. Comparando valores, agrupando información.
+Reportes: Observar anomalías, acelerar el tiempo de respuesta, prevenir ataques o fallas.
+Pasos para depurar:
+
+° 	Ir al módulo que falla
+° Establecer breakpoints
+° Diseñar una matrix de pruebas
+° Establecer los datos de prueba
+° Comenzar a depurar
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+En esta unidad vamos a conocer las bases para la automatización de pruebas y podemos automatizar las siguientes tipos de pruebas.
+
+- Pruebas unitarias: Tienen que ver con un pedazo de código que el desarrollador esta codificando, pero no tienen que ver con todo el flujo de negocio y proceso del software.
+
+- Pruebas de integración: Cómo hacemos que el conjunto del equipo que libera pedacitos de software funcionen juntos y no hagan defectos adicionales.
+
+- Pruebas funcionales o de aceptación: Estas pruebas no necesariamente forman parte de los requerimientos especificados por el cliente, una recomendación para automatizar estas pruebas es que deban cumplir con los requerimientos dados por el cliente.
+
+- Test Driven Development: El desarrollo va a estar enfocado haciendo primera las pruebas y después el código. Haciendo que el desarollo sea muy específico con la mayor cobertura y no pongamos líneas de código que no van a funcionar o no se usan.
+
+° Escribimos una prueba
+° Ejecutamos la prueba: Falla
+° Se escribe el código
+° Ejecutamos la prueba: Pasa
+° Behavior Driven Development: Si primeros vamos a escribir las pruebas, debemos hacerlo bien y usando un lenguaje sencillo, simple para que la sirva al equipo para entender qué es lo que queremos hacer.

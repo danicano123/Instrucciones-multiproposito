@@ -41,12 +41,25 @@ Disponibilidad: Tener acceso a la información cada que esta sea solicitada por 
 	- **Crack passwords**: Descubir contraseñas débiles almacenadas en el O.S
 	- **Intrusión**: Permitir acceso a sistemas criticos por medio de shell
 	- **Movimiento lateral**: Replicarse y actuar en un mismo segmento de fallas o VLAN
-	- **Disponibilidad**: Afectar la operatividad de sistemas vitales para la empresa por carga de cómputo
+	- **Disponibilidad o Denegación de servicios (DoS)**: Afectar la operatividad de sistemas vitales para la empresa por carga de cómputo
+		° Inundación de peticiones por generación excesiva de tráfico de red
+		° **Basado en volúmen** satura el ancho de banda 
+		° **de protocolos** consume los recursos del servidos (Se asocia al comado **ping** que usamos para ver si un host está activo)
+		° Capas de aplicación generadas por _request_ masivos hacia sitios web
+		° Pueden infectar tambien a otros dispositivos para configurar un ataque masivo simultaneo
 	- **Criptojacking**: Utiliza procedimientos en equipos vulnerados para minar criptodivisas
 	- **Secuestro de datos**: Altera la integridad de la información 
 	- **Zombie**: Controla equipos remotos dejando una porcion de codigo en equipos vulnerables para dirigir ataques programados 
 
+- ###Man in the middle: Ciber ataque que permite interceptar la comunicación _usuario-aplicación_ para capturar información 
+	- **IP Spoofing**: Su propósito es transformar la dirección IP correcta de la fuente para que el sistema al que se dirige un paquete no pueda detectar correctamente al remitente.
+
+	- **ARP Spoofing**: Es una técnica que utilizan los piratas informáticos para lograr entrar en una red para robar los paquetes de datos que pasan por la red local. De esta forma podría controlar el tráfico y también 	incluso detenerlo.
+
+	- **DNS Spoofing**: consiste en modificar las direcciones IP en los servidores DNS de la víctima. De este modo, los delincuentes pueden redirigir el tráfico de la víctima hacia sitios web falsos.
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ##Ingeniería social: Interacciones y tecnicas de manipulación psicológica para engañar a las victimas 
 
@@ -67,3 +80,36 @@ Disponibilidad: Tener acceso a la información cada que esta sea solicitada por 
 - **Exit (Eliminar huellas)**:
 	° Cierre de interacción
 	° Eliminación de evidencia
+
+###Phishing: Técnica de ingeniería social que suplanta la identidad de empresas, bancos o sus empleados para el robo de datos por medio de estas metodologías
+- **Email Scams**: Envío masivo de mails a víctimas que han comprometido sus datos como movil, correo etc
+
+- **Spear Phishing**: Se realiza una inteligencia mayor para involucrarse en la empresa para atacar desde dentro
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+##Controles en ciberseguridad:
+
+###Gestión de accesos: 
+Se refiere a fortalecer o robustecer _hardening_ la manera a la que se accede a mi información como con aplicaciónes, contraseñas seguras oprotecciónes en los software _online_ y _offline_
+
+##Firewall:
+Dsipositivo o servicio de seguridad que monitorea y controla la salida y entrada de tráfico bajo las reglas de seguridad definidas y conceptos como _Zero-trust_ o no confies en nada
+
+###Cifrado
+
+###VPN: 
+Red privada virtual
+
+###End point protection:
+Proteger todos losdispositivos finales  en una red 	
+
+###Plan de continuidad de negocio
+Contemplar analisis del impacto de los riesgos y su plan de recuperación para dar continuidad despues de un siniestro
+
+###DLP (Data lost prevention)
+
+###Gestión de incidentes
+Es un proceso que da respuesta a cada caso de ciber ataque por medio de las fases de preparacion, deteccion, analisis, notificación, clasificacion y priorisacion, contencion y recuperacion, acciones posteriores al cierre
+
+###BYOD (Bring your own device	)

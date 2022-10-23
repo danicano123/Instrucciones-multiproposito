@@ -1,0 +1,69 @@
+¿Que es la ciberseguridad?
+
+Es un conjunto de buenas practicas de mejora continua para desarrollar personas, directrices, procesos de la cultura organizacional y arquitecturas de IT con el motivo de proteger a la empresa u organizacional de ciberataques.
+Todo lo anterior esta basado en los ciber riesgos a los que se puede exponer en plataformas donde se provee información sensible.
+
+Está para implementar una serie de controles que nos permiten  mitigar riezgos financieron, reputacionales y legales para cumplir con las normativas de seguridad de datos, inversionistas y usuarios
+
+Beneficios:
+° Confianza en nuestra empresa
+° Privacidad
+° Protección
+° Integridad
+° Prevención
+° Productividad
+° Control
+
+Confidencialidad: Acceso a la información solo disponible para usuarios que tengan la autorización necesaria.
+
+Integridad: Busca mantener que la información no sufra alguna alteración a su estructura o en dicho caso su eliminación.
+
+Disponibilidad: Tener acceso a la información cada que esta sea solicitada por el usuario y asegurarse de que la información sea accesible en todo momento.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+##Ciber Amenazas: Son las labores que ejecutan los ciberdelincuentes
+
+- ###Malware: Software malicioso que causa daño a todo tipo de dispositivos y O.S
+	Se dividen en  grandes tipos:
+	- **Virus**: Modifica programas para propagarse
+	- **Ramsonware**: Cifra archivos reelevantes para cobrar por rescate
+		° Tecnicas de cifrado altamente robustos
+		° Muy lucrativo al ser en su mayoría dirigido a empresas
+		° Altera la integridad de los archivos por medio de la "llave privada (SSH)"
+		° Inicia como un archivo infectado mediante cosas como un mail llamativo
+		° Ejecuta un barrido alterando la integridad de archivos importantes como ofimática y backups
+		° Tambien atacan por medio de IP's públicas, carencias de "firewalls" o "endpoint protection (antivirus)", que no existan prácticas de herdening, osea proteger nuestros servicios IT  
+	- **Spyware**: Realiza labores de espionaje accediendo a contraseñas y captura de entradas por perifericos que realiza un usuario
+	- **Bots**: Ejecuta ciberataques dirigidos
+	
+	Y realizan diferentes acciones:
+	- **Crack passwords**: Descubir contraseñas débiles almacenadas en el O.S
+	- **Intrusión**: Permitir acceso a sistemas criticos por medio de shell
+	- **Movimiento lateral**: Replicarse y actuar en un mismo segmento de fallas o VLAN
+	- **Disponibilidad**: Afectar la operatividad de sistemas vitales para la empresa por carga de cómputo
+	- **Criptojacking**: Utiliza procedimientos en equipos vulnerados para minar criptodivisas
+	- **Secuestro de datos**: Altera la integridad de la información 
+	- **Zombie**: Controla equipos remotos dejando una porcion de codigo en equipos vulnerables para dirigir ataques programados 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+##Ingeniería social: Interacciones y tecnicas de manipulación psicológica para engañar a las victimas 
+
+###Ciclo de vida:
+- **Investigación**: 
+	° Identificación de víctima
+	° Captura de información
+	° Método de ataque
+
+- **Hook (enganche)**:
+	° Enlaza con la victima quizá con ofertas o algo llamativo
+	° Control de interacción
+
+- **Play**:
+	° Tengo la atención de la victima y ejecuto mi ataque
+	° Obtengo informcaión por medio de ingeniería social y tecnicas  psicológicas 
+
+- **Exit (Eliminar huellas)**:
+	° Cierre de interacción
+	° Eliminación de evidencia

@@ -307,7 +307,7 @@ Historial: Agiliza la forma de monitorear y observar los comportamientos de nues
 Reportes: Observar anomalías, acelerar el tiempo de respuesta, prevenir ataques o fallas.
 Pasos para depurar:
 
-° 	Ir al módulo que falla
+° Ir al módulo que falla
 ° Establecer breakpoints
 ° Diseñar una matrix de pruebas
 ° Establecer los datos de prueba

@@ -1,7 +1,0 @@
-primero nos vamos a esta direccion que nos permite crear el proyecto fácilmente 
-https://start.spring.io/
-Tambien lo podemos hacer desde el editor pero Ñaa
-
-procedemos a extraer la carpeta que se descarga y abrimos su contenido con el editor
-
-agregamos los paquetes a utilizar segun los conocimientos previos y configuramos el application.properties ya sea para SQL o para NO SQL ( son diferentes )

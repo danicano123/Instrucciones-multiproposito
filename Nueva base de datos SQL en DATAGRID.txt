@@ -1,6 +1,0 @@
-Abrimos datagrid y seguimos los siguientes pasos
-	- new - data source - MySQL
-
-	- Le damos un nombre a la conexion - en hots: localhost o ip del server - usuario: ( root , 	lo establecí cuando instalé SQL igual que la password) - password: Danicano3264
-
-Va a salir una ventana donde podemos insertar el codigo SQL, nos aseguramos de que TODO esté seleccionado y listo para ejecutarse y le damos run. Nos tiene que aparecer una nueva tabla con todos los valores listos 

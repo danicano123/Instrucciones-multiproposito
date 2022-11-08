@@ -18,9 +18,13 @@ function createStudent({
   Se declara que por defecto el objetoserá igual a objeto vacío
   */
 {
-
     //Retorna todos los parámetros que por defecto serán asignados a "undefined" si no les pusimos nada
   return {
+    /* 
+    cuando retornamos "name" por ejemplo, no tenemos que hacer "name: name" ya que toma el nombre como el parametro como "key"
+    y el argumento como "value" por defecto y puedo recibir cualquier parámetro por fuera de su "key" y al retornarlo, solo lo
+    ingreso dentro del "key" y así me ahorro algo como "socialMedia.twitter"
+    */
     name,
     email,
     age,

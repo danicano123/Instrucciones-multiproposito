@@ -19,12 +19,14 @@ const otherArray = [...array]; //[ 'H', 'o', 'l', 'a' ]
   originalArray === copyArray; // false
 }
 
-/* Si tenemos niveles más profundos, entonces sí copiará su referencia en memoria pero hay otra solución */
+/**  Si tenemos niveles más profundos, entonces sí copiará su referencia en memoria pero hay otra solución
+ * Tambien copia las fechas!
+ */
 {
-  const originalArray = [1, [2, 3], 4, 5];
+  const originalArray = [1, [{name: "daniel"},2, 3], 4, 5];
   const copyArray = structuredClone(originalArray);
 
-  originalArray === copyArray; // false
+  console.log( originalArray === copyArray); // false
   originalArray[1] === copyArray[1]; // false
 }
 
@@ -53,18 +55,16 @@ const otherArray = [...array]; //[ 'H', 'o', 'l', 'a' ]
 
 // También sirve para obtener los elementos restantes de un array u objeto usando desestructuración.
 {
-    const objeto = {
+  const objeto = {
     nombre: "Andres",
     age: 23,
-    plataforma: "Platzi"
-  }
-  const array = [0,1,2,3,4,5]
-  
-  const {plataforma, ...usuario} = objeto
-  const [cero, ...positivos] = array
-  
-  usuario // { nombre: 'Andres', age: 23 }
-  positivos // [ 1, 2, 3, 4, 5 ]
-      
-}
+    plataforma: "Platzi",
+  };
+  const array = [0, 1, 2, 3, 4, 5];
 
+  const { plataforma, ...usuario } = objeto;
+  const [cero, ...positivos] = array;
+
+  usuario; // { nombre: 'Andres', age: 23 }
+  positivos; // [ 1, 2, 3, 4, 5 ]
+}

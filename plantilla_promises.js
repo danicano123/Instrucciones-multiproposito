@@ -1,20 +1,37 @@
 const promise = new Promise(function (resolve, reject) {
-    resolve('hey!')
-  });
-  
-  const cows = 15;
-  
-  const countCows = new Promise(function (resolve, reject) {
-    if (cows > 10) {
-      resolve(`We have ${cows} cows on the farm`);
-    } else {
-      reject("There is no cows on the farm");
-    }
-  });
-  
-  countCows.then((result) => {
+  resolve("hey!");
+});
+
+const cows = 15;
+
+const countCows = new Promise(function (resolve, reject) {
+  if (cows > 10) {
+    resolve(`We have ${cows} cows on the farm`);
+  } else {
+    reject("There is no cows on the farm");
+  }
+});
+
+countCows
+  .then((result) => {
     console.log(result);
-  }).catch((error) => {
+  })
+  .catch((error) => {
     console.log(error);
-  }).finally(() => console.log('Finally'));
-  
+  })
+  .finally(() => console.log("Finally"));
+
+
+
+
+{
+  function delay(time, message) {
+    return new Promise((resolve) => {
+      window.setTimeout(() => {
+        resolve(message);
+      }, time);
+    });
+  }
+
+  delay().then;
+}

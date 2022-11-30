@@ -1,0 +1,14 @@
+# Instalación
+## Debes tener la extension ESLINT de microsoft
+- Comenzamos con `npm i -D eslint` (se descarga como dev dependency)
+- `npx eslint --init` me abre unas configuraciones que le permitirán manipular mi editor
+- Nos realiza unas preguntas y las respondemos paso a paso según la configuración del proyeto
+- Al final de las preguntas, instalamos todos los paquetes necesarios 
+
+---
+
+# Comandos
+- `lint Ruta` nos lista los typos que tengamos en esa ruta
+- `lint Ruta --fix` nos corrige todo automaticamente
+
+

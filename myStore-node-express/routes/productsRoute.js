@@ -1,82 +1,45 @@
 const express = require('express');
+const ProductService = require('../services/products.service');
 
 const router = express.Router();
+const service = new ProductService();
 
-const products = [
-  {
-    id: 1,
-    name: 'laptop',
-    price: '$1,000.000',
-  },
-  {
-    id: 2,
-    name: 'movil',
-    price: '$500.000',
-  },
-];
 // GET methods
-router.get('/', (req, res) => {
-  res.json(products);
+router.get('/', async (req, res) => {
+  res.json(await service.showAll());
 });
 
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
 
-  const product = products.forEach((object) => {
-    // eslint-disable-next-line eqeqeq
-    if (object.id == id) {
-      return object;
-    }
-    return {};
-  });
+  const product = await service.findOneById(id);
 
-  res.json(product);
+  res.status(product[0]).json(product[1]);
 });
 
 // POST method
 
 router.post('/', async (req, res) => {
-  const body = req.body;
-  if (typeof body == 'object') {
-    if (Object.keys(body).toString() === 'id,name,price') {
-      products.push(body);
-      res.status(201).json('successfully created');
-    } else {
-      res.json({
-        message: 'data missing',
-        expected: {
-          id: 'number',
-          name: 'something',
-          price: 'number',
-        },
-        received: body,
-      });
-    }
-  } else res.send('only Objects pls');
+  const { body } = req;
+  const newProduct = await service.create(body);
+  res
+    .status(newProduct[1])
+    .json(`${Object.values(newProduct[0])}  =>  ${newProduct[2]}`);
 });
 
 // PATCH method
 
 router.patch('/:id', async (req, res) => {
-  const body = req.body;
-  if (typeof body == 'object') {
-    if (
-      Object.keys(body).toString().includes('id')
-      || Object.keys(body).toString().includes('name')
-      || Object.keys(body).toString().includes('price')
-    ) {
-      res.send('element has been modified');
-    } else {
-      res.json({
-        message: 'data missing',
-        expected: {
-          id: 'number',
-          name: 'something',
-          price: 'number',
-        },
-        received: body,
-      });
-    }
-  } else res.send('only Objects pls');
+  const { id } = req.params;
+  const { body } = req;
+
+  const product = await service.updateOneById(id, body);
+  res.status(product[0]).json(product[1]);
+});
+
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  const product = await service.physicalDelete(id);
+  res.status(product[0]).json(product[1]);
 });
 module.exports = router;

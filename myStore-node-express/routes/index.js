@@ -1,4 +1,4 @@
-const productsRouter = require('./productsRoute');
+const productsRouter = require('./products.route');
 
 const routerApi = (app) => {
   app.use('/products', productsRouter);

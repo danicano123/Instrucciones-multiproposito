@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+const boom = require('@hapi/boom');
 const faker = require('faker');
 
 class ProductService {
@@ -29,15 +30,13 @@ class ProductService {
         this.products.push(newProduct);
         return [newProduct, 201, 'successfully created'];
       }
-      return [
-        {
-          message: 'data missing',
-        },
-        400,
-        'invalid format',
-      ];
+      throw boom.badRequest(
+        `invalid entries or missing data: Found ${Object.keys(
+          newProduct
+        ).toString()}`
+      );
     }
-    return [newProduct, 400, 'is not an object'];
+    throw boom.badRequest(`${newProduct} Must be an Object`);
   }
 
   async showAll() {
@@ -47,7 +46,7 @@ class ProductService {
   async findOneById(id) {
     const product = this.products.find((element) => element.id === id);
     if (product) return [201, product];
-    return [404, 'Not found'];
+    throw boom.notFound('Product not found');
   }
 
   async updateOneById(id, changes) {
@@ -65,11 +64,11 @@ class ProductService {
           this.products[index] = product;
           return [204, product];
         }
-        return [404, 'Not Found'];
+        throw boom.notFound(`Product not found by id: ${id}`);
       }
-      return [400, 'Invalid entries'];
+      throw boom.badRequest('invalid entries');
     }
-    return [400, 'Object Expected'];
+    throw boom.badRequest('Must be an Object');
   }
 
   async physicalDelete(id) {

@@ -1,8 +1,14 @@
 const express = require('express');
 const ProductService = require('../services/products.service');
+const validatorHandler = require('./../middlewares/validator.handler');
 
 const router = express.Router();
 const service = new ProductService();
+const {
+  createProductSchema,
+  updateProductSchema,
+  findProductSchema,
+} = require('../schemas/products.schema');
 
 // GET methods
 router.get('/', async (req, res, next) => {
@@ -13,45 +19,65 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get(
+  '/:id',
+  validatorHandler(findProductSchema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const product = await service.findOneById(id);
+
+      res.status(product[0]).json(product[1]);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+// POST method
+
+router.post(
+  '/',
+  validatorHandler(createProductSchema, 'body'),
+  async (req, res, next) => {
+    const { body } = req;
+    try {
+      const product = await service.create(body);
+      res
+        .status(product[1])
+        .json(`${Object.values(product[0])}  =>  ${product[2]}`);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+// PATCH method
+
+router.patch(
+  '/:id',
+  validatorHandler(findProductSchema, 'params'),
+  validatorHandler(updateProductSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const { body } = req;
+
+      const product = await service.updateOneById(id, body);
+      res.status(product[0]).json(product[1]);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+router.delete('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    const product = await service.findOneById(id);
-
+    const product = await service.physicalDelete(id);
     res.status(product[0]).json(product[1]);
   } catch (error) {
     next(error);
   }
-});
-
-// POST method
-
-router.post('/', async (req, res, next) => {
-  const { body } = req;
-  console.log(body);
-  try {
-    const product = await service.create(body);
-    res
-      .status(product[1])
-      .json(`${Object.values(product[0])}  =>  ${product[2]}`);
-  } catch (error) {
-    next(error);
-  }
-});
-
-// PATCH method
-
-router.patch('/:id', async (req, res) => {
-  const { id } = req.params;
-  const { body } = req;
-
-  const product = await service.updateOneById(id, body);
-  res.status(product[0]).json(product[1]);
-});
-
-router.delete('/:id', async (req, res) => {
-  const { id } = req.params;
-  const product = await service.physicalDelete(id);
-  res.status(product[0]).json(product[1]);
 });
 module.exports = router;

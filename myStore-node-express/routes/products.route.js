@@ -26,8 +26,7 @@ router.get(
     try {
       const { id } = req.params;
       const product = await service.findOneById(id);
-
-      res.status(product[0]).json(product[1]);
+      res.status(product[0]).json(await product[1]);
     } catch (error) {
       next(error);
     }
@@ -64,7 +63,8 @@ router.patch(
       const { body } = req;
 
       const product = await service.updateOneById(id, body);
-      res.status(product[0]).json(product[1]);
+      console.log(product[1]);
+      res.status(product[0]).json(await product[1]);
     } catch (error) {
       next(error);
     }
@@ -75,6 +75,7 @@ router.delete('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
     const product = await service.physicalDelete(id);
+    console.log(product[1]);
     res.status(product[0]).json(product[1]);
   } catch (error) {
     next(error);

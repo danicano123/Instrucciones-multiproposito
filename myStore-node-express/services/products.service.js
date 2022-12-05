@@ -1,68 +1,77 @@
 /* eslint-disable linebreak-style */
 const boom = require('@hapi/boom');
 const faker = require('faker');
+const productsSchema = require('../schemas/db.products.schema');
+const date = new Date();
+const dateNow =
+  date.getDate() + ' ' + (date.getMonth() + 1) + ' ' + date.getFullYear();
 
 class ProductService {
-  constructor() {
-    this.products = [];
-    this.generate();
-  }
-
-  generate() {
-    for (let index = 0; index < 100; index++) {
-      this.products.push({
-        id: index.toString(),
-        name: faker.commerce.productName(),
-        color: faker.commerce.color(),
-        price: faker.commerce.price(),
-        img: faker.image.imageUrl(),
-      });
-    }
-  }
-
   async create(product) {
     const newProduct = {
-      id: this.products.length.toString(),
       ...product,
+      createdAt: dateNow,
+      modifiedAt: null,
     };
     if (typeof newProduct === 'object') {
-      this.products.push(newProduct);
+      const dbProduct = new productsSchema(newProduct);
+      dbProduct
+        .save()
+        .then((ok) => {
+          console.log(ok);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       return [newProduct, 201, 'successfully created'];
     }
     throw boom.badRequest(`${newProduct} Must be an Object`);
   }
 
   async showAll() {
-    return this.products;
+    return productsSchema
+      .find()
+      .then((ok) => ok)
+      .catch((err) => {
+        throw boom.internal(err);
+      });
   }
 
   async findOneById(id) {
-    const product = this.products.find((element) => element.id === id);
-    if (product) return [201, product];
-    throw boom.notFound('Product not found');
+    return [
+      201,
+      productsSchema
+        .findById(id)
+        .then((ok) => ok)
+        .catch((err) => {
+          throw boom.notFound(`Product not found by id: ${id}`);
+        }),
+    ];
   }
 
   async updateOneById(id, changes) {
     if (typeof changes === 'object') {
-      const index = this.products.findIndex((element) => element.id === id);
-      if (index !== -1) {
-        const product = { ...this.products[index], ...changes };
-        this.products[index] = product;
-        return [204, product];
-      }
-      throw boom.notFound(`Product not found by id: ${id}`);
+      const foundProduct = await productsSchema
+        .findByIdAndUpdate(id, { ...changes, modifiedAt: dateNow })
+        .then((ok) => ok)
+        .catch((err) => {
+          throw boom.notFound(`Product not found by id: ${id}`);
+        });
+
+      return [204, foundProduct];
     }
     throw boom.badRequest('Must be an Object');
   }
 
   async physicalDelete(id) {
-    const index = this.products.findIndex((element) => element.id === id);
-    if (index !== -1) {
-      this.products.splice(index, 1);
-      return [200, this.products[index]];
-    }
-    throw boom.notFound('Product not found');
+    const foundProduct = await productsSchema
+      .findByIdAndDelete(id)
+      .then((ok) => ok)
+      .catch((err) => {
+        throw boom.notFound(`Product not found by id: ${id}`);
+      });
+
+    return [204, foundProduct];
   }
 }
-
 module.exports = ProductService;

@@ -6,7 +6,9 @@ const {
 } = require('./middlewares/error.handler');
 const routerApi = require('./routes/index');
 
+// initializations
 const app = express();
+require('./database.js');
 const port = 3000;
 
 app.get('/', (req, res) => {
@@ -18,7 +20,7 @@ app.get('/', (req, res) => {
 app.use(express.json());
 routerApi(app);
 
-// My Middlewares
+// My Middlewares (los Middlewares que se ejecutan en 'next' deben ir despues del enrutamiento)
 
 app.use(errorLoguer);
 app.use(boomErrorHandler);

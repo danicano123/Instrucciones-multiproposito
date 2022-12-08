@@ -1,4 +1,13 @@
 const express = require('express');
+
+// initializations
+const app = express();
+const server = require('http').createServer(app);
+const { Server } = require('socket.io');
+const io = new Server(server);
+// const socket = require('./socket');
+require('./database.js');
+// socket.connect(server);
 const {
   errorLoguer,
   errorHandler,
@@ -6,13 +15,15 @@ const {
 } = require('./middlewares/error.handler');
 const routerApi = require('./routes/index');
 
-// initializations
-const app = express();
-require('./database.js');
-const port = 3000;
+io.on('connection', (alv) => {
+  console.log(`hello from socket${alv}`);
+  io.emit('message', 'hola!');
+});
 
+const port = 3000;
+app.use(express.static('./public/views/'));
 app.get('/', (req, res) => {
-  res.send('my server');
+  res.send('hola');
 });
 
 // General middlewares
@@ -26,6 +37,6 @@ app.use(errorLoguer);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`listen at http://localhost:${port}`);
 });

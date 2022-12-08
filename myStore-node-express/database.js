@@ -6,7 +6,7 @@ db.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  }
+  },
 )
   .then(() => console.log('[MongoDB in cloud]: successfully connected'))
   .catch((err) => console.log(err));

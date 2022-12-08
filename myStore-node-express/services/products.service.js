@@ -1,10 +1,10 @@
-/* eslint-disable linebreak-style */
 const boom = require('@hapi/boom');
-const faker = require('faker');
-const productsSchema = require('../schemas/db.products.schema');
+const ProductsSchema = require('../schemas/db.products.schema');
+
 const date = new Date();
-const dateNow =
-  date.getDate() + ' ' + (date.getMonth() + 1) + ' ' + date.getFullYear();
+const dateNow = `${date.getDate()} ${
+  date.getMonth() + 1
+} ${date.getFullYear()}`;
 
 class ProductService {
   async create(product) {
@@ -14,7 +14,7 @@ class ProductService {
       modifiedAt: null,
     };
     if (typeof newProduct === 'object') {
-      const dbProduct = new productsSchema(newProduct);
+      const dbProduct = new ProductsSchema(newProduct);
       dbProduct
         .save()
         .then((ok) => {
@@ -29,8 +29,7 @@ class ProductService {
   }
 
   async showAll() {
-    return productsSchema
-      .find()
+    return ProductsSchema.find()
       .then((ok) => ok)
       .catch((err) => {
         throw boom.internal(err);
@@ -40,8 +39,7 @@ class ProductService {
   async findOneById(id) {
     return [
       201,
-      productsSchema
-        .findById(id)
+      ProductsSchema.findById(id)
         .then((ok) => ok)
         .catch((err) => {
           throw boom.notFound(`Product not found by id: ${id}`);
@@ -51,8 +49,10 @@ class ProductService {
 
   async updateOneById(id, changes) {
     if (typeof changes === 'object') {
-      const foundProduct = await productsSchema
-        .findByIdAndUpdate(id, { ...changes, modifiedAt: dateNow })
+      const foundProduct = await ProductsSchema.findByIdAndUpdate(id, {
+        ...changes,
+        modifiedAt: dateNow,
+      })
         .then((ok) => ok)
         .catch((err) => {
           throw boom.notFound(`Product not found by id: ${id}`);
@@ -64,8 +64,7 @@ class ProductService {
   }
 
   async physicalDelete(id) {
-    const foundProduct = await productsSchema
-      .findByIdAndDelete(id)
+    const foundProduct = await ProductsSchema.findByIdAndDelete(id)
       .then((ok) => ok)
       .catch((err) => {
         throw boom.notFound(`Product not found by id: ${id}`);

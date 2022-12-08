@@ -1,6 +1,6 @@
 const express = require('express');
 const ProductService = require('../services/products.service');
-const validatorHandler = require('./../middlewares/validator.handler');
+const validatorHandler = require('../middlewares/validator.handler');
 
 const router = express.Router();
 const service = new ProductService();
@@ -68,7 +68,7 @@ router.patch(
     } catch (error) {
       next(error);
     }
-  }
+  },
 );
 
 router.delete('/:id', async (req, res, next) => {

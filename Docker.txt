@@ -1,0 +1,45 @@
+Docker: Herramienta que permite construir, distribuir y ejecutar cualquier aplicación en cualquier lado; esto ya que nor permite traernos fácilmente todo un entorno de desarrollo por medio de contenedores que son mas eficientes que maquinas virtuales
+
+	{
+	- Contenedores: es la manera en que docker nos permite distruibuir y ejecutar entornos completos de desarrollo. Se caracterizan por que cualquier app y entorno se puede meter dentro de ellos, reutilizan código de 	nuestro kernel para ser más eficiente y no duplicar código, corren de la misma manera en cualquier máquina
+	
+	- Daemon: Es el corazón de docker, maneja la totalidad de sus entidades que nosotros utilizamos y nos da acceso a ellas por medio de api rest
+
+	- Imagenes: para entenderlas facilemente, podemos verlas como las clases (moldes) a los que nosotros vamos a llamar (usar una instancia) para trabajar con ellas
+
+	- Volúmenes: Un volumen de contenedor permite conservar los datos, aunque se elimine el Docker container. Los volúmenes también permiten un intercambio práctico de datos entre el host y el container.
+
+		Crear un volumen de Docker es una buena solución para poder:
+
+		Transferir datos a un contenedor de Docker
+		Guardar los datos de un contenedor de Docker
+		Intercambiar datos entre contenedores de Docker
+
+		El volumen es una carpeta compartida entre el contenedor y el ordenador host. Los volúmenes también pueden ser compartidos entre contenedores.
+	}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Comandos de docker: todos los comandos de docker, al invicarlos desde la terminal, debemos comenzar con la palabra " docker "
+
+run: me permite correr un contenedor
+	[
+	- docker run <image_container> : estandar
+	- docker run --name <name_container> <image_container> : Arrancar un contenedor asignándole un nombre.
+	- docker run -it <image_container> <shell> : Arrancar un contenedor con una terminal interactiva. Pasándole una shell para acceder al contenedor.
+	- docker run -p <host_port>:<container_port> <image_container> :  Arrancar un contenedor. Mapeando un puerto del host a un puerto del contenedor.
+	- docker run -p 8080:80 -d nginx : Igual que el ejemplo anterior pero dejándolo en segundo plano.
+	- docker run --rm <image_container> : Arrancar un contenedor. Que tras terminar su periodo de vida. Será eliminado automáticamente.
+	- docker run -v <volume_name>:<mount_point>:<options> <image_container> : Arrancar un contenedor con un volume. 
+		▪primer parámetro: carpeta de mi maquina donde persistiré la información
+		▪Segundo parámetro: carpeta de la imagen de la que quiero extraer la info
+		▪Tercer parámetro: opciones como rw que son leer y escribir
+	]
+
+ps: me lista los contenedores 
+	[
+	- docker ps: lista los contenedores activos
+	- docker ps -a: lista TODOS los contendores
+	- docker ps -aq: Lista los ID de todos los contenedores.
+	]
+

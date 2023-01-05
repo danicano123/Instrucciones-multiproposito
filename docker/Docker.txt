@@ -34,6 +34,9 @@ run: me permite correr un contenedor
 		▪primer parámetro: carpeta de mi maquina donde persistiré la información
 		▪Segundo parámetro: carpeta de la imagen de la que quiero extraer la info
 		▪Tercer parámetro: opciones como rw que son leer y escribir
+	- docker run -v <shared_folder>:<mount_point>:<options> <image_container>:  Arrancar un contenedor con un bind mount.
+
+
 	]
 
 ps: me lista los contenedores 
@@ -41,5 +44,14 @@ ps: me lista los contenedores
 	- docker ps: lista los contenedores activos
 	- docker ps -a: lista TODOS los contendores
 	- docker ps -aq: Lista los ID de todos los contenedores.
+	]
+
+volume: accedo a los comandos de volumenes
+	[
+	- docker volume ls :listo los volumes
+	- docker volume create dbdata :creo un volume
+	- docker run -d --name db --mount src=dbdata,dst=/data/db mongo :corro la BBDD y monto el volume
+	- docker inspect db (veo la información detallada del contenedor)
+	- mongo (me conecto a la BBDD)
 	]
 
